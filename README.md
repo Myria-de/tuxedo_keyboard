@@ -14,7 +14,7 @@ Die möglichen Werte lassen sich mit
 ```
 cat /sys/devices/platform/tuxedo_keyboard/uw_kbd_bl_color/color_string
 ```
-ermitteln (BLACK, RED, GREEN, BLUE, YELLOW, MAGENTA, CYAN, WHITE). Die Farben müssen in Großbuchstaben angegeben werden. Für die Helligkeit ist "/sys/devices/platform/tuxedo_keyboard/uw_kbd_bl_color/brightness" zuständig. Der Wert kann zwischen „0“ (keine Beleuchtung) und "255" (Maximum) liegen. Der Befehl
+ermitteln (BLACK, RED, GREEN, BLUE, YELLOW, MAGENTA, CYAN, WHITE). Die Farben müssen in Großbuchstaben angegeben werden. Für die Helligkeit ist "/sys/devices/platform/tuxedo_keyboard/uw_kbd_bl_color/brightness" zuständig. Der Wert kann zwischen "0" (keine Beleuchtung) und "255" (Maximum) liegen. Der Befehl
 ```
 sudo -s echo 0 > /sys/devices/platform/tuxedo_keyboard/uw_kbd_bl_color/brightness
 ```
@@ -30,13 +30,11 @@ Bei anderen Tuxedo-Notebooks gibt es mehr Optionen (siehe https://www.tuxedocomp
 
 Optimal wäre ein Treiber, über den sich die Optionen in Echtzeit setzen lassen, also nicht nur bei einem Neustart des Systems. Ein Ansatz dafür ist unter https://github.com/dariost/clevo-xsm-wmi zu finden. Für das Polaris 15 eignet sich der Treiber aber nicht, weil er nur mit Clevo-Geräten funktioniert. Das Polaris 15 basiert jedoch auf einem Uniwill-Notebook.
 
-Unser Beispiel zeigt, wie sich der Wert auch ohne sudo ändern lässt. Das Grundprinzip lässt sich auf alle Treiber anwenden, die sich über Dateien unter „/sys“ oder per Konfigurationsdatei steuern lassen.
+Unser Beispiel zeigt, wie sich der Wert auch ohne sudo ändern lässt. Das Grundprinzip lässt sich auf alle Treiber anwenden, die sich über Dateien unter "/sys" oder per Konfigurationsdatei steuern lassen.
 
 ## Systemd-Units und Tool verwenden
 
-Die beiden Dateien aus dem Ordner "systemd" kopieren Sie (mit root-Rechten) in den Ordner "/etc/systemd/system".
-
-Die Datei "tuxedo_keyboard.sh" aus dem Ordner "script" kopieren Sie in den Ordner "/root". Die Datei "tuxedo_keybord.ini" aus dem gleichen Ordner kopieren Sie in Ihr Home-Verzeichnis.
+Die beiden Dateien aus dem Ordner "systemd" kopieren Sie (mit root-Rechten) in den Ordner "/etc/systemd/system". Die Datei "tuxedo_keyboard.sh" aus dem Ordner "script" kopieren Sie in den Ordner "/root". Die Datei "tuxedo_keybord.ini" aus dem gleichen Ordner kopieren Sie in Ihr Home-Verzeichnis.
 
 Aktivieren und starten Sie das Path-Unit:
 ```
