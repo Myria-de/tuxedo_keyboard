@@ -47,3 +47,5 @@ Sie können jetzt in der Datei "tuxedo_keybord.ini" Werte ändern, tragen Sie be
 
 Das Programm tuxedo_keyboard aus dem Ordner "bin" ändert nur die Farbe in der Datei "tuxedo_keybord.ini". Die eigentliche Arbeit übernimmt das Systemd.Path-Unit und das Bash-Script. Der Quelltext (Lazarus/Free Pascal) liegt im Ordner "tuxedo_keyboard".
 
+![](https://github.com/Myria-de/tuxedo_keyboard/blob/main/images/Tuxedo_Keyboard_GUI.png?raw=true)
+
